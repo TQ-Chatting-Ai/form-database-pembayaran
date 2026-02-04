@@ -1,0 +1,85 @@
+java Projects
+
+> masuk ke path project (~/.repos/java/sistem_pembayaran/)
+	tree ~/.repos/java/sistem_pembayaran/
+		├── data_db
+		│   ├── aria_log.00000001
+		│   └── ....
+		├── mysql.jar
+		├── mysql.sock
+		├── pembayaran_spp.sql
+		└── SistemSPP.java
+
+		7 directories, 216 files
+
+> Buat file SistemSPP.java
+
+> download "independent platform.jar" di "https://dev.mysql.com/downloads/connector/j/"
+> Ekstrak /home/tquilla/.repos/java/mysql-connector-j-9.5.0.tar.gz dan ambil file .jar -nya
+> pindahkan ke /home/tquilla/.repos/java/sistem_pembayaran/
+> di terminal jalankan mariadb (jika tidak ada maka install dulu "nix-shell -p mariadb"):
+> buat folder database
+
+	`mkdir data_db`
+	
+> jalankan perintah instalasi
+
+	`mariadb-install-db --datadir=$PWD/data_db`
+	
+> jalankan aktivasi port (tekan enter jika muncul "ready for connections") // skip grant access
+
+	`mariadbd --datadir=$PWD/data_db --socket=$PWD/mysql.sock --port=3306 --skip-grant-tables &`
+	
+> masuk environtment SQL (prompt berubah jadi MariaDB [(none)]>)
+
+	`mariadb --socket=$PWD/mysql.sock`
+	
+> di dalam mariadb jalankan Refresh izin:
+	
+	`FLUSH PRIVILEGES;`
+	`ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('');`
+	`FLUSH PRIVILEGES;`
+	`exit`
+
+> kill process lalu jalankan lagi
+
+	`pkill mariadb`
+	`mariadbd --datadir=$PWD/data_db --socket=$PWD/mysql.sock --port=3306 &`
+
+> didalam environtment mariadb, lakukan pembuatan tablenya:
+
+	```
+	CREATE DATABASE dbProjectSiswa;
+	USE dbProjectSiswa;
+
+	CREATE TABLE pembayaran_spp (
+	    id_siswa VARCHAR(20) PRIMARY KEY,
+	    nama_siswa VARCHAR(100),
+	    kelas VARCHAR(20),
+	    jurusan VARCHAR(50),
+	    pembayaran VARCHAR(50),
+	    jumlah DOUBLE
+	);
+	```
+	`exit`
+
+> Jalankan Program
+
+	`java -cp .:mysql.jar SistemSPP.java`
+
+
+*TIPS : Preview Data maasuk dari console mariadb.
+
+> untuk menampilkan Table data:
+
+	`mariadb -u root --socket=$PWD/mysql.sock -t -e "SELECT * FROM dbProjectSiswa.pembayaran_spp;"`
+
+> Tambahkan `watch` untuk auto refresh:
+
+	`watch -n 2 'mariadb -u root --socket=$PWD/mysql.sock -t -e "SELECT * FROM dbProjectSiswa.pembayaran_spp;"'`
+
+	
+
+
+
+

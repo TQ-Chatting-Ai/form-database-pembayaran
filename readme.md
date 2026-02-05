@@ -1,11 +1,11 @@
 # Java Project — Sistem Pembayaran SPP
 Project Java GUI sederhana untuk manajemen pembayaran SPP sekolah.
 
-Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](https://mariadb.com/downloads/community/community-server/)
+Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](https://mariadb.com/downloads/community/community-server/), [java developmen kit(jdk)](https://www.oracle.com/java/technologies/downloads/)
 
 <!-- SETUP DATABASE -->
 <details close>
-   <summary><h2>Setup MariaDB</h2></summary>
+   <summary><h2>Langkah 1: Setup MariaDB</h2></summary>
    
    ---
    
@@ -59,7 +59,7 @@ Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](
 
 <!-- SETUP DATABASE TABLE -->
 <details close>
-   <summary><h2>Buat Table Database</h2></summary>
+   <summary><h2>Langkah 2: Buat Table Database</h2></summary>
 
    ---
 
@@ -92,17 +92,17 @@ Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](
 
 <!-- COMPILE PROJECT -->
 <details close>
-  <summary><h2>Program Java Siap dijalankan</h2></summary>
-
-  ---
+  <summary><h2>Langkah 3: Program Java Siap dijalankan</h2></summary>
   
-  1. Jalankan perintah ini untuk memunculkan GUI
+  - Jalankan perintah ini untuk memunculkan GUI
      ```bash
      java -cp .:mysql.jar SistemSPP.java
      ```
 
      <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/698dc6cd-2c0c-4a5f-9fd6-8693102c5db5" />
 
+     ---
+     
      <details open>
        <summary><h4>Struktur Akhir Projects</h4></summary>
        
@@ -123,20 +123,18 @@ Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](
 
 --- 
 
-### Tips Monitoring Data (Console)
+# Tips 
 
-#### Menampilkan data tabel
-
-```bash
-mariadb -u root \
-  --socket=$PWD/mysql.sock \
-  -t \
-  -e "SELECT * FROM dbProjectSiswa.pembayaran_spp;"
-```
-
-#### Auto refresh dengan `watch`
-
-```bash
-watch -n 2 \
-'mariadb -u root --socket=$PWD/mysql.sock -t -e "SELECT * FROM dbProjectSiswa.pembayaran_spp;"'
-```
+- Monitoring Data (Console)
+   ```bash
+   mariadb -u root \
+     --socket=$PWD/mysql.sock \
+     -t \
+     -e "SELECT * FROM dbProjectSiswa.pembayaran_spp;"
+   ```
+   
+- Auto refresh dengan `watch`
+   ```bash
+   watch -n 2 \
+   'mariadb -u root --socket=$PWD/mysql.sock -t -e "SELECT * FROM dbProjectSiswa.pembayaran_spp;"'
+   ```

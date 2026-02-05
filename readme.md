@@ -1,7 +1,9 @@
 # Java Project — Sistem Pembayaran SPP
 Project Java GUI sederhana untuk manajemen pembayaran SPP sekolah.
 
-Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](https://mariadb.com/downloads/community/community-server/), [java developmen kit(jdk)](https://www.oracle.com/java/technologies/downloads/)
+Dependency yang harus kita punya untuk bisa menjalankan project ini : 
+   [MariaDB](https://mariadb.org), 
+   [java developmen kit (jdk)](https://openjdk.org/install/)
 
 <!-- SETUP DATABASE -->
 <details close>

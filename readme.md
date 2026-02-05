@@ -3,15 +3,8 @@ Project Java GUI sederhana untuk manajemen pembayaran SPP sekolah.
 
 Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](https://mariadb.com/downloads/community/community-server/)
 
-
-#### Table of Konten:
-  1. [Setup MariaDB](https://github.com/TQ-Chatting-Ai/form-database-pembayaran/edit/main/readme.md#setup-mariadb)
-  2. [Buat Table Database](https://github.com/TQ-Chatting-Ai/form-database-pembayaran/edit/main/readme.md#Buat-Table-Database)
-  3. [Program Java siap dijalankan](https://github.com/TQ-Chatting-Ai/form-database-pembayaran/edit/main/readme.md#Program-Java-siap-dijalankan)
-
-
 <!-- SETUP DATABASE -->
-<details open>
+<details close>
    <summary><h2>Setup MariaDB</h2></summary>
    
    ---
@@ -65,7 +58,7 @@ Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](
 </details>
 
 <!-- SETUP DATABASE TABLE -->
-<details open>
+<details close>
    <summary><h2>Buat Table Database</h2></summary>
 
    ---
@@ -98,39 +91,41 @@ Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](
 </details>
 
 <!-- COMPILE PROJECT -->
-<details open>
-   <summary><h2>Program Java Siap dijalankan</h2></summary>
+<details close>
+  <summary><h2>Program Java Siap dijalankan</h2></summary>
 
-   ---
+  ---
+  
+  1. Jalankan perintah ini untuk memunculkan GUI
+     ```bash
+     java -cp .:mysql.jar SistemSPP.java
+     ```
 
-   Jalankan perintah ini untuk memunculkan GUI
-   ```bash
-   java -cp .:mysql.jar SistemSPP.java
-   ```
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/698dc6cd-2c0c-4a5f-9fd6-8693102c5db5" />
 
-   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/698dc6cd-2c0c-4a5f-9fd6-8693102c5db5" />
-
-   <details open>
-      <summary><h4>Struktur Akhir Projects</h4></summary>
-      
-         form-database-pembayaran/
-               ├── data_db
-               │   ├── aria_log.00000001
-               │   └── ...
-               ├── mysql.jar
-               ├── mysql.sock
-               ├── pembayaran_spp.sql
-               └── SistemSPP.java
-         
-         7 directories, 216 files
-   </details>
+     <details open>
+       <summary><h4>Struktur Akhir Projects</h4></summary>
+       
+       ```bash
+       form-database-pembayaran/
+             ├── data_db
+             │   ├── aria_log.00000001
+             │   └── ...
+             ├── mysql.jar
+             ├── mysql.sock
+             ├── pembayaran_spp.sql
+             └── SistemSPP.java
+       
+       7 directories, 216 files
+       ```
+     </details>
 </details>
 
 --- 
 
-# Tips Monitoring Data (Console)
+### Tips Monitoring Data (Console)
 
-### Menampilkan data tabel
+#### Menampilkan data tabel
 
 ```bash
 mariadb -u root \
@@ -139,7 +134,7 @@ mariadb -u root \
   -e "SELECT * FROM dbProjectSiswa.pembayaran_spp;"
 ```
 
-### Auto refresh dengan `watch`
+#### Auto refresh dengan `watch`
 
 ```bash
 watch -n 2 \

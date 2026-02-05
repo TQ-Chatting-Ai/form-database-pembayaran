@@ -1,4 +1,6 @@
-# Java Project — Sistem Pembayaran SPP
+# Java Project — Sistem Pembayaran SPP 
+[Video [ID]](https://youtu.be/8fAyPZ5SU5I)
+
 Project Java GUI sederhana untuk manajemen pembayaran SPP sekolah.
 
 Dependency yang harus kita punya untuk bisa menjalankan project ini : 

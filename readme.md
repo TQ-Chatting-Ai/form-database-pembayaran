@@ -54,6 +54,8 @@ Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](
       --socket=$PWD/mysql.sock \
       --port=3306 &
       ```
+      > Tekan 'ENTER'
+      > 
       > Setelah itu, tidak akan perlu password lagi untuk akses kembali kedalam MariaDB-nya
 </details>
 
@@ -88,6 +90,7 @@ Dependency yang harus kita punya untuk bisa menjalankan project ini : [MariaDB](
       ```sql
       exit
       ```
+      selesai
 </details>
 
 <!-- COMPILE PROJECT -->
